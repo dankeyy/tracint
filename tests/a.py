@@ -1,4 +1,4 @@
-from b import f
+from tests.b import f
 
 def g():
     f()
