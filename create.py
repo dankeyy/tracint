@@ -7,15 +7,30 @@ def g():
 
 try:
     1, g()
-
 except Exception as e:
-    l = []
-    t = e.__traceback__
+    tb = e.__traceback__
+
+
+    # there's this small annoyance that the last -last-instruction- is relevant only in the context of the first frame
+    # so we need to preserve a stack for the traces and walk backwards with the lasti-s
+    # feels bad to be needing to allocate here, c'est la vie
+    traces = []
+    last_instructions = []
+    while tb:
+        traces.append(tb)
+        last_instructions.append(tb.tb_lasti)
+        tb = tb.tb_next
+    frames_count = len(last_instructions)
+
+    locations = []
     positions = None
-    while t:
+    for ti, t in enumerate(traces):
+        # i-th positions tuple means i-th instruction
+        # as explained in https://docs.python.org/3/reference/datamodel.html#codeobject.co_positions
         for i, positions in enumerate(t.tb_frame.f_code.co_positions()):
-            if t.tb_next and i == t.tb_next.tb_lasti:
+            if i == last_instructions[frames_count - ti - 1]:
                 break
-        l.extend(positions)
-        t = t.tb_next
-    print(l)
+        assert positions is not None # should _never_ be the case
+        locations.extend(positions)
+
+    print(locations)
