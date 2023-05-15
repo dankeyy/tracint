@@ -1,12 +1,4 @@
-def f():
-    [][1]
-
-def g():
-    f()
-
-try:
-    g()
-except Exception as e:
+def print_list(e: Exception):
     tb = e.__traceback__
     locations = []
     positions = None
