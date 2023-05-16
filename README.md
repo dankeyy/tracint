@@ -49,4 +49,4 @@ File "/home/dankey/dev/projects/traceback_recoverer/tests/b.py", line 2, in f
 Note for testing how `tests_driver.py` can be used to showcase both a capture of a traceback into a list (run directly), and as an entrypoint to walk backwards to the root of the exception (as an argument to `from_list`).
 
 ## TODO
-Utilize line end and column end to provide better tracebacks then CPython's (imagine a function call that spreads across multiple lines).
+Utilize line end and column end to provide better tracebacks than CPython's (imagine a function call that spreads across multiple lines).
