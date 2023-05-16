@@ -15,7 +15,8 @@ Recovery is done by working backwards to the definition of each function in the 
 ## Example
 Compare this
 ``` python
-
+python tests_driver.py
+Traceback (most recent call last):
   File "/home/dankey/dev/projects/traceback_recoverer/tests_driver.py", line 4, in <module>
     tests.a.g()
   File "/home/dankey/dev/projects/traceback_recoverer/tests/a.py", line 4, in g
@@ -41,8 +42,8 @@ File "/home/dankey/dev/projects/traceback_recoverer/tests/b.py", line 2, in f
     [][1]
     ^^^^^
 ```
-[Not quite the same but close enough](https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg)
-Note how `tests_driver.py` showcases both a capture of a traceback into a list (run `python tests_driver.py` to output it), and as an entrypoint example to walk backwards to the root of the exception (give it as an argument to `from_list`).
+[close enough](https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg)\
+Note for testing how `tests_driver.py` can be used showcases both a capture of a traceback into a list (run `python tests_driver.py` to output it), and as an entrypoint example to walk backwards to the root of the exception (give it as an argument to `from_list`).
 
 ## TODO
 Utilize line end and column end to provide better tracebacks then CPython's (imagine a function call that spreads across multiple lines).
