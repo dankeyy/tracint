@@ -16,7 +16,7 @@ Recovery is done by working backwards to the definition of each function in the 
 Compare this
 ```py
 Traceback (most recent call last):
-  File "/home/dankey/dev/projects/traceback_recoverer/tests_driver.py", line 4, in <module>
+  File "/home/dankey/dev/projects/traceback_recoverer/tests_driver.py", line 5, in <module>
     tests.a.g()
   File "/home/dankey/dev/projects/traceback_recoverer/tests/a.py", line 4, in g
     f()
@@ -30,8 +30,8 @@ With this
 
 ```console
 $ python from_list.py \
-         tests_driver.py \
-         $(python tests_driver.py)  # [5, 5, 4, 15, 4, 4, 4, 7, 2, 2, 4, 9]
+         "tests_driver.py" \
+         "[5, 5, 4, 15, 4, 4, 4, 7, 2, 2, 4, 9]"  # get from to_list.print_list
 ```
 ```py
 Traceback (most recent call last):
