@@ -4,7 +4,7 @@
 Given a known entry point (be it a file or a catching function), we can encode and decode a traceback as a list of integers denoting start line, end line, start column and end column, repeating for every frame in a stacktrace.
 Recovery is done by working backwards to the definition of each function in the stacktrace.
 
-## Digressions
+## Caveats
 1. Needs py 3.11.
 2. Needs jedi as a dep.
 3. Only works on statically derivable call sites (as that's how jedi works).
